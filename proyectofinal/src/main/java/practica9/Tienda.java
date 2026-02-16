@@ -14,6 +14,8 @@ import java.util.Scanner;
  * - Mejorar la gestión de logs (Patrón Singleton).
  */
 public class Tienda {
+Scanner sc = new Scanner(System.in);
+int opcion = sc.nextInt();
 
     //He cambiado los nombres de las variables para que sean mas intuitivas.
     public static ArrayList<String> nombres = new ArrayList<>(); 
@@ -21,7 +23,6 @@ public class Tienda {
     public static ArrayList<Integer> stock = new ArrayList<>(); 
 
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
 
         // Datos de prueba iniciales
         nombres.add("Camiseta");
@@ -41,12 +42,14 @@ public class Tienda {
             System.out.println("3. Realizar venta");
             System.out.println("4. Salir");
             System.out.print("Seleccione una opción: ");
-
-            int opcion = sc.nextInt();
-
+            //HAcer switch
             if (opcion == 1) {
-                System.out.print("Nombre del producto: ");
-                String nombre = sc.next();
+                Productos.crearProducto(precio, nombre, stockInicial);
+                
+
+
+
+
                 System.out.print("Precio: ");
                 double precio = sc.nextDouble();
                 System.out.print("Stock inicial: ");
@@ -120,4 +123,7 @@ public class Tienda {
         }
         sc.close();
     }
+
+
+
 }
