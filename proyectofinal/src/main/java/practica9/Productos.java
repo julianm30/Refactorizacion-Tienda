@@ -37,16 +37,13 @@ public class Productos {
 
     @Override
     public String toString() {
-        return "Productos [precio=" + precio + ", nombre=" + nombre +
-                ", stock=" + stock + "]";
+        return "Productos = Nombre: " + nombre + " | Precio: " + precio + " euros | Stock: " + stock;
     }
 
-
-public static Productos crearProducto() {
-        
+    public static Productos crearProducto() {
         System.out.println("Producto añadido correctamente.");
 
-        return new Productos(precio, nombre, stockInicial);
+        return new Productos(precio, nombre, stock);
     }
 
 }
