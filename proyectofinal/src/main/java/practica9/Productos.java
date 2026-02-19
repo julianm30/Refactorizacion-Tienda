@@ -1,9 +1,14 @@
 package practica9;
 
+import java.util.ArrayList;
+
 public class Productos {
     private double precio;
     private String nombre;
     private int stock;
+
+        private static ArrayList<Productos> listaProductos = new ArrayList<>();
+
 
     public Productos(double precio, String nombre, int stock) {
         this.precio = precio;
@@ -40,10 +45,32 @@ public class Productos {
         return "Productos = Nombre: " + nombre + " | Precio: " + precio + " euros | Stock: " + stock;
     }
 
-    public static Productos crearProducto() {
-        System.out.println("Producto añadido correctamente.");
+    // Método para añadir productos nuevos
+    public static void anadirProducto() {
 
-        return new Productos(precio, nombre, stock);
+        System.out.println("Nombre del artículo:");
+        String nombreNewArt = sc.nextLine();
+
+        System.out.println("Precio del artículo:");
+        double precioNewArt = sc.nextDouble();
+
+        System.out.println("Stock:");
+        int stockNewArt = sc.nextInt();
+        sc.nextLine(); // limpiar buffer
+
+        // Crear nuevo objeto Producto
+        Productos nuevoProducto = new Productos(precioNewArt, nombreNewArt, stockNewArt);
+
+        // Añadir a la lista
+        listaProductos.add(nuevoProducto);
+
+        System.out.println("El producto se ha añadido correctamente.");
     }
 
+    // Método para mostrar todos los productos
+    public static void mostrarProductos() {
+        for (Productos p : listaProductos) {
+            System.out.println(p);
+        }
+    }
 }

@@ -6,7 +6,7 @@ import java.util.Scanner;
 /**
  * CÓDIGO CON CODESMELLING
  * 
- * TODO: Este código necesita un refactorización urgente.
+ * Este código necesita un refactorización urgente.
  * - Eliminar la "Clase Dios" que es todo el main
  * - Usar programación orientada a objetos
  * - Eliminar números fijos introducidos en el código (no están dentro de
@@ -14,13 +14,18 @@ import java.util.Scanner;
  * - Mejorar la gestión de logs (Patrón Singleton).
  */
 public class Tienda {
-Scanner sc = new Scanner(System.in);
-int opcion = sc.nextInt();
+    Scanner sc = new Scanner(System.in);
+    int opcion = sc.nextInt();
 
-    //He cambiado los nombres de las variables para que sean mas intuitivas.
-    public static ArrayList<String> nombres = new ArrayList<>(); 
-    public static ArrayList<Double> precios = new ArrayList<>(); 
-    public static ArrayList<Integer> stock = new ArrayList<>(); 
+    // He cambiado los nombres de las variables para que sean mas intuitivas.
+    public static ArrayList<String> nombres = new ArrayList<>();
+    public static ArrayList<Double> precios = new ArrayList<>();
+    public static ArrayList<Integer> stock = new ArrayList<>();
+
+    // hago constantes con los numeros fijos
+    private static final double precioParaDescuento = 50.0;
+    private static final double descuentoDiezPorCiento = 0.9;
+    private static final int pocoStock = 3;
 
     public static void main(String[] args) {
 
@@ -36,24 +41,20 @@ int opcion = sc.nextInt();
         stock.add(2);
 
         while (true) {
-            System.out.println("\n--- TIENDA ---");
+            System.out.println("--- TIENDA ---");
             System.out.println("1. Añadir producto");
             System.out.println("2. Mostrar inventario");
             System.out.println("3. Realizar venta");
             System.out.println("4. Salir");
             System.out.print("Seleccione una opción: ");
-            //HAcer switch
+            // HAcer switch
             if (opcion == 1) {
                 Productos.crearProducto(precio, nombre, stockInicial);
-                
-
-
-
 
                 System.out.print("Precio: ");
                 double precio = sc.nextDouble();
                 System.out.print("Stock inicial: ");
-                int stockInicial = sc.nextInt(); //Cambio Stock = StockInicial para no confundirme
+                int stockInicial = sc.nextInt(); // Cambio Stock = StockInicial para no confundirme
 
                 nombres.add(nombre);
                 precios.add(precio);
@@ -66,7 +67,8 @@ int opcion = sc.nextInt();
                     System.out.println("No hay productos.");
                 } else {
                     for (int i = 0; i < nombres.size(); i++) {
-                        System.out.println(i + ". " + nombres.get(i) + " - " + precios.get(i) + "€ - Stock: " + stock.get(i));
+                        System.out.println(
+                                i + ". " + nombres.get(i) + " - " + precios.get(i) + "€ - Stock: " + stock.get(i));
                     }
                 }
 
@@ -123,7 +125,5 @@ int opcion = sc.nextInt();
         }
         sc.close();
     }
-
-
 
 }
