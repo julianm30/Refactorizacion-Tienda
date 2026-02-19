@@ -1,6 +1,7 @@
 package practica9;
 
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class Productos {
     private double precio;
@@ -45,8 +46,13 @@ public class Productos {
         return "Productos = Nombre: " + nombre + " | Precio: " + precio + " euros | Stock: " + stock;
     }
 
+
+        public void reducirStock(int cantidad) {
+        this.stock -= cantidad;
+    }
+
     // Método para añadir productos nuevos
-    public static void anadirProducto() {
+    public static void anadirProducto(Scanner sc) {
 
         System.out.println("Nombre del artículo:");
         String nombreNewArt = sc.nextLine();
